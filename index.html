@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name = "viewport" content = "width = device-width; user-scalable = no, minimum-scale = 1.0, maximum-scale = 1.0">
+    <title> EXPRESSTRICITY - DV3010 </title>
+    <script src = "JS/aframe.min.js"></script>
+    <script src = "JS/aframe-ar.js"></script>
+    <script>
+      function handleOrientation(event) {
+        var oAbs = event.absolute;
+        var oA = event.alpha;
+        var oB = event.beta;
+        var oG = event.gamma;
+      }
+
+      output.innerHTML = oAbs;
+      output.innerHTML = oA;
+      output.innerHTML = oB;
+      output.innerHTML = oG;
+
+      window.addEventListener("deviceorientation", handleOrientation, true);
+    </script>
+
+    <link rel = "stylesheet" type = "text/css" href = "CSS/stylesheet.css">
+  </head>
+
+  <body style = "margin: 0px; overflow: hidden;">
+    <div>
+      <h1> SCAN SOMEONE </h1>
+    </div>
+
+    <a-scene embedded arjs = "sourceType: webcam; trackingMethod: best; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; detectionMode: mono_and_matrix; matrixCodeType: 5x5;">
+      <a-marker type = "pattern" url = "Markers/pattern-1.patt">
+        <a-image
+          src = "Assets/animation.gif"
+          position = "0 0 0"
+          scale = "3.2 4 4"
+          rotation = "-90 0 0"
+        ></a-image>
+      </a-marker>
+      <a-entity camera>
+      </a-entity>
+    </a-scene>
+    </div>
+  </body>
+</html>
